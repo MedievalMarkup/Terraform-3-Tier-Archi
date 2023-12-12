@@ -13,11 +13,6 @@ variable "sub_cidr" {
   type = string
 }
 
-variable "sub_cidr" {
-  description = "vpc id"
-  type = string
-}
-
 variable "subnet_type" {
   description = "vpc id"
   type = string
