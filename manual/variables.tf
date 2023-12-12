@@ -6,6 +6,12 @@ variable "vpc_cidr_block" {
   default = "10.0.0.0/16"
 }
 
+variable "aws_region" {
+  description = "cidr for vpc"
+  type = string
+  default = "us-west-1"
+}
+
 #subnets
 variable "list_of_subnets" {
   description = "list of vpc subnets"
