@@ -3,5 +3,5 @@
 # }
 
 output "subnet_type_id" {
-  value = tomap("${join("\n", [for subnet in aws_subnet.aws_subnets : "${subnet.tags["subnet_type"]} = ${subnet.id}"])}")
+  value = "${join("\n", [for subnet in aws_subnet.aws_subnets : "${subnet.tags["subnet_type"]} = ${subnet.id}"])}"
 }
