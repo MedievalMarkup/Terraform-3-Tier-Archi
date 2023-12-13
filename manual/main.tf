@@ -4,7 +4,7 @@ module "VPC-Manual" {
 }
 
 module "private_subnets" {
-  source = "./modules/subnets/main-private.tf"
+  source = "./modules/subnet-private/"
   aws_vpc_id = module.VPC-Manual.vpc_id
   for_each = {for i, subnet in var.list_private_subnets:  i => subnet}
   sub_cidr = each.value.cidr_block
@@ -13,7 +13,7 @@ module "private_subnets" {
 }
 
 module "public_subnets" {
-  source = "./modules/subnets/main-public.tf"
+  source = "./modules/subnet-public/"
   aws_vpc_id = module.VPC-Manual.vpc_id
   for_each = {for i, subnet in var.list_public_subnets:  i => subnet}
   sub_cidr = each.value.cidr_block
