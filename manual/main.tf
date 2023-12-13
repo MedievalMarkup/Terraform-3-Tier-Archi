@@ -21,6 +21,6 @@ module "public_subnets" {
   subnet_type = each.value.subnet_type
 }
 
-module "NAT-Gateway" {
-  source = "./modules/NAT-Gateway"
-}
+# module "NAT-Gateway" {
+#   source = "./modules/NAT-Gateway"
+# }
