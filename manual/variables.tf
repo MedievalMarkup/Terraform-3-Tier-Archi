@@ -38,19 +38,3 @@ variable "list_private_subnets" {
     }
   ]
 }
-
-variable "list_public_subnets" {
-  description = "list of vpc subnets"
-  type = list(object({
-    subnet_type = string
-    cidr_block  = list(string)
-    av_zone     = string
-  }))
-  default = [ 
-    {
-      subnet_type = "public"
-      cidr_block = ["10.0.101.0/24", "10.0.102.0/24"]
-      av_zone = "us-west-1"
-    }
-  ]
-}
