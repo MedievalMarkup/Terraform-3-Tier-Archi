@@ -3,5 +3,5 @@ output "vpc_id" {
 }
 
 output "id_private_subnets" {
-  value = [for id in module.private_subnets: id.subnet_type_id]
+  value = [for id in module.subnets: id.subnet_type_id]
 }
