@@ -14,5 +14,6 @@ module "subnets" {
 
 locals {
   private_ids = [for id in module.subnets: id.private_subnet_ids]
-  non_null_private_id = [for id in local.private_ids: length(compact(id)) != 0 ? concat(id, []) : null]
+  # non_null_private_id = [for id in local.private_ids: length(compact(id)) != 0 ? concat(id, []) : null]
+  non_null_private_id = [for id in local.private_ids : id != null ? id : null]
 }
