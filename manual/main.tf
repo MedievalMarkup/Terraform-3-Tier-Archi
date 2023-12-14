@@ -11,3 +11,8 @@ module "subnets" {
   sub_av_zone = each.value.av_zone
   subnet_type = each.value.subnet_type
 }
+
+locals {
+  private_ids = [for id in module.subnets: id.private_subnet_ids]
+  non_null_private_id = [for id in local.private_ids: length(id)]
+}
