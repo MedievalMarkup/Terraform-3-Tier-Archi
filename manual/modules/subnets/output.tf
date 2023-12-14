@@ -2,8 +2,8 @@
 #   value = "${[for subnet in aws_subnet.aws_subnets : "${subnet.tags["subnet_type"]} = ${subnet.id}"]}"
 # }
 
-output "subnet_private_id" {
-  value = "${[for subnet in aws_subnet.aws_subnets : subnet.tags["subnet_type"] == "private" ? subnet.id : null]}"
+output "private_subnet_ids" {
+  value = [for subnet in aws_subnet.aws_subnets : subnet.tags["subnet_type"] == "private" ? subnet.id : null if contains(keys(subnet.tags), "subnet_type")]
 }
 
 output "subnet_public_id" {
