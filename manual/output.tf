@@ -3,7 +3,7 @@ output "vpc_id" {
 }
 
 output "id_private_subnets" {
-  value = [for id in module.subnets: lookup(id.subnet_private_id, "private", null)]
+  value = [for id in module.subnets: lookup(tomap(id.subnet_private_id), "private", null)]
 }
 
 output "id_public_subnets" {
