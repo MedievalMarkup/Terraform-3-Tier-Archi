@@ -3,7 +3,7 @@ output "vpc_id" {
 }
 
 output "id_private_subnets" {
-  value = [for id in module.subnets: id.subnet_private_id != null ? id.subnet_private_id : null]
+  value = [for id in module.subnets: lookup(id.id_private_subnets, "private", null)]
 }
 
 output "id_public_subnets" {
