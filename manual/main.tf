@@ -8,8 +8,8 @@ module "subnets" {
   source = "./modules/subnets"
   for_each = local.get_product
   aws_vpc_id = module.VPC-Manual.vpc_id
-  sub_cidr = keys(each.key)
-  sub_av_zone = values(each.value)
+  sub_cidr = each.key
+  sub_av_zone = each.value
   subnet_type = local.final_subnet_type
 }
 
