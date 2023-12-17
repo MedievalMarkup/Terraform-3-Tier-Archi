@@ -13,5 +13,6 @@ locals {
       my_product = {for val in setproduct(value.cidr_block, value.av_zone): "${val[0]}-${val[1]}" => val}
     }
   } 
+	get_product = [for obj in local.subnet_object_locals: obj.my_product]
   # nat_gateway_id = [for id in module.module.NAT-Gateway : id.natG-id]
 }
