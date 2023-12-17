@@ -17,5 +17,6 @@ locals {
   }
   final_subnet_type = [for obj in local.subnet_object_locals: obj.subnet_type]
 	get_product = [for obj in local.subnet_object_locals: obj.my_product]
+  
   # nat_gateway_id = [for id in module.module.NAT-Gateway : id.natG-id]
 }

@@ -3,7 +3,7 @@ output "vpc_id" {
 }
 
 output "subnet_object" {
-  value = tomap(local.get_product)
+  value = local.get_product
 }
 
 output "subnet_type" {
