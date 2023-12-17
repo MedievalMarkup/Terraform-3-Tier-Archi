@@ -16,7 +16,7 @@ module "VPC-Manual" {
 module "subnets" {
   source = "./modules/subnets"
   aws_vpc_id = module.VPC-Manual.vpc_id
-  for_each = local.subnet_object_locals
+  for_each = local.subnet_object_locals.my_product
   sub_cidr = each.value[0]
   sub_av_zone = each.value[1]
   subnet_type = local.subnet_object_locals.subnet_type
