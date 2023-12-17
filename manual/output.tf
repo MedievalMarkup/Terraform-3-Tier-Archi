@@ -4,7 +4,7 @@ output "vpc_id" {
 
 output "subnet_object" {
   value = {
-    for id, key in local.local.get_product: id => key
+    for id, key in local.get_product: id => key
   }
 }
 
