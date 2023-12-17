@@ -10,9 +10,8 @@ variable "sub_av_zone" {
 
 variable "sub_cidr" {
   description = "vpc id"
-  type = list(string)
+  type = string
 }
-
 
 variable "subnet_type" {
   description = "vpc id"
