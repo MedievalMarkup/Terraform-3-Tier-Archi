@@ -20,16 +20,16 @@ locals {
   nat_gateway_id = [for id in module.module.NAT-Gateway : id.natG-id]
 }
 
-module "NAT-Gateway" {
-  source = "./modules/NAT-Gateway"
-  private_ids = locals.non_null_private_id
-}
+# module "NAT-Gateway" {
+#   source = "./modules/NAT-Gateway"
+#   private_ids = locals.non_null_private_id
+# }
 
-module "internet-gateway" {
-  source = "./modules/Internet-Gateway"
-  vpc_id = local.vpc_id
-}
+# module "internet-gateway" {
+#   source = "./modules/Internet-Gateway"
+#   vpc_id = local.vpc_id
+# }
 
-module "route-tables" {
-  source = "./modules/RouteTables"
-}
+# module "route-tables" {
+#   source = "./modules/RouteTables"
+# }
