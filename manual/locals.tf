@@ -12,7 +12,7 @@ locals {
       cidr_list = value.cidr_block
       subnet_av_zone_list = value.av_zone
       subnet_type = value.subnet_type
-      my_product = zipmap(cidr_list, subnet_av_zone_list)
+      my_product = zipmap(value.cidr_block, value.av_zone)
     }
   }
 
