@@ -17,7 +17,7 @@ locals {
   # non_null_private_id = [for id in local.private_ids: length(compact(id)) != 0 ? concat(id, []) : null]
   non_null_private_id = [for id in local.private_ids : id != null ? id : null]
   vpc_id = module.VPC-Manual.vpc_id
-  nat_gateway_id = [for id in module.module.NAT-Gateway : id.natG-id]
+  # nat_gateway_id = [for id in module.module.NAT-Gateway : id.natG-id]
 }
 
 # module "NAT-Gateway" {
