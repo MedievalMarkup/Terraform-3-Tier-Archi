@@ -16,10 +16,10 @@ module "VPC-Manual" {
 module "subnets" {
   source = "./modules/subnets"
   aws_vpc_id = module.VPC-Manual.vpc_id
-  for_each = local.my_product 
+  for_each = local.subnet_object_locals
   sub_cidr = each.value[0]
   sub_av_zone = each.value[1]
-  subnet_type = local.subnet_type
+  subnet_type = local.subnet_object_locals.subnet_type
 }
 
 # module "NAT-Gateway" {
