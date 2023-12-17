@@ -3,7 +3,9 @@ output "vpc_id" {
 }
 
 output "subnet_object" {
-  value = [for key in local.get_product: keys(key)]
+  value = {
+    for id, key in local.local.get_product: id => key
+  }
 }
 
 output "subnet_type" {
