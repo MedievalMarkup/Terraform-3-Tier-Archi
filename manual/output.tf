@@ -6,4 +6,8 @@ output "subnet_object" {
   value = local.get_product
 }
 
+output "subnet_type" {
+  value = local.final_subnet_type
+}
+
 
