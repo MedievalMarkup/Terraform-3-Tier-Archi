@@ -13,13 +13,13 @@ module "subnets" {
 
 module "NAT-Gateway" {
   source = "./modules/NAT-Gateway"
-  private_ids = module.subnets.public_subnet_ids
+  public_ids = module.subnets.public_subnet_ids
 }
 
-# module "internet-gateway" {
-#   source = "./modules/Internet-Gateway"
-#   vpc_id = local.vpc_id
-# }
+module "internet-gateway" {
+  source = "./modules/Internet-Gateway"
+  vpc_id = module.VPC-Manual.vpc_id
+}
 
 # module "route-tables" {
 #   source = "./modules/RouteTables"
