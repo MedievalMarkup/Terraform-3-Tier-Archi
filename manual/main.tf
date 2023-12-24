@@ -11,12 +11,10 @@ module "subnets" {
   subnet_obj = var.list_of_subnets
 }
 
-
-
-# module "NAT-Gateway" {
-#   source = "./modules/NAT-Gateway"
-#   private_ids = locals.non_null_private_id
-# }
+module "NAT-Gateway" {
+  source = "./modules/NAT-Gateway"
+  private_ids = module.subnets.public_subnet_ids
+}
 
 # module "internet-gateway" {
 #   source = "./modules/Internet-Gateway"
