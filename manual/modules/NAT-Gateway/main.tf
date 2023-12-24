@@ -1,6 +1,6 @@
 resource "aws_eip" "nat_eip" {
-  count            = var.public_ids
-  domain           = var.eip_domain
+  count            = length(var.public_ids)
+  # domain           = var.eip_domain
 }
 
 resource "aws_nat_gateway" "test-nat" {
