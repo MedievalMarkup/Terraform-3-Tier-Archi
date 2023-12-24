@@ -4,6 +4,7 @@ module "VPC-Manual" {
   vpc_cidr_block = var.vpc_cidr_block
 }
 
+
 module "subnets" {
   source = "./modules/subnets"
   for_each = {for i, v in var.list_of_subnets:  i => v}
