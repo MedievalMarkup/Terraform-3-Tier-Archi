@@ -13,37 +13,43 @@ variable "aws_region" {
 }
 
 #subnets
-
-variable "list_public_subnets" {
-  description = "list of vpc subnets"
-  type = list(object({
-    cidr_block  = list(string)
-    av_zone     = list(string)
-  }))
-  default = [ 
-    {
-      cidr_block = ["10.0.101.0/24", "10.0.102.0/24"]
-      av_zone = ["us-west-1a", "us-west-1b"]
-    }
-  ]
-}
-variable "list_private_subnets" {
+variable "list_of_subnets" {
   description = "list of vpc subnets"
   type = list(object({
     subnet_type = string
-    cidr_block  = list(string)
-    av_zone     = list(string)
+    cidr_block  = string
+    av_zone     = string
   }))
   default = [ 
     {
-      subnet_type = "private"
-      cidr_block = ["10.0.1.0/24", "10.0.2.0/24"]
-      av_zone = ["us-west-1a", "us-west-1b"]
+      subnet_type  = "public"
+      cidr_block   = "10.0.101.0/24"
+      av_zone      = "us-west-1a"
     },
     {
-      subnet_type = "database"
-      cidr_block = ["10.0.151.0/24", "10.0.152.0/24"]
-      av_zone = ["us-west-1a", "us-west-1b"]
+      subnet_type  = "public"
+      cidr_block   = "10.0.102.0/24"
+      av_zone      = "us-west-1b"
+    },
+    {
+      subnet_type  = "private"
+      cidr_block   = "10.0.1.0/24"
+      av_zone      = "us-west-1a"
+    },
+    {
+      subnet_type  = "private"
+      cidr_block   = "10.0.2.0/24"
+      av_zone      = "us-west-1b"
+    },
+    {
+      subnet_type  = "database"
+      cidr_block   = "10.0.151.0/24"
+      av_zone      = "us-west-1a"
+    },
+    {
+      subnet_type  = "database"
+      cidr_block   = "10.0.152.0/24"
+      av_zone      = "us-west-1b"
     }
   ]
 }
