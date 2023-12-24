@@ -20,9 +20,9 @@ variable "aws_vpc_id" {
 
 variable "subnet_obj" {
   description = "vpc id"
-  type = object({
+  type = list(object({
     subnet_type = string
     cidr_block = string
     av_zone = string
-  })
+  }))
 }
