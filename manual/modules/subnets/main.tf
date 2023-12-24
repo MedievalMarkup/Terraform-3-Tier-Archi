@@ -6,3 +6,9 @@ resource "aws_subnet" "aws_subnets" {
     subnet_type = var.subnet_type
   }
 }
+
+locals {
+  subnet_ids = {
+    for subnet in aws_subnet.aws_subnets : subnet.id => subnet.id
+  }
+}
