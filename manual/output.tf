@@ -6,7 +6,7 @@ output "subnet_ids" {
   value = module.subnets.public_subnet_ids
 }
 
-output "eip_id" {
+output "eip_alloc_id" {
   value = module.elastic_ips.eip_id
 }
 
