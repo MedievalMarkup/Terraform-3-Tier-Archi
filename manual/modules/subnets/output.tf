@@ -1,5 +1,5 @@
 output "subnet_type_id" {
-  value = [for subnet in aws_subnet.aws_subnets : subnet.tags]
+  value = [for subnet in aws_subnet.aws_subnets : subnet]
 }
 
 # output "subnet_public_id" {
