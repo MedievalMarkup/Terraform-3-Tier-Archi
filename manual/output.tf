@@ -3,7 +3,7 @@ output "vpc_id" {
 }
 
 output "subnet_obj" {
-  value = [for id in module.subnets.subnet_obj : id]
+  value = [for id in module.subnets.subnet_obj : id.subnet_obj]
 }
 
 
