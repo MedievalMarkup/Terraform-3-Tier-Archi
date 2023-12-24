@@ -6,7 +6,7 @@ module "VPC-Manual" {
 
 module "subnets" {
   source = "./modules/subnets/"
-  for_each = toset(var.list_of_subnets)
+  for_each = var.list_of_subnets
   aws_vpc_id = module.VPC-Manual.vpc_id
   sub_cidr = each.key["cidr_block"]
   sub_av_zone = each.key["av_zone"]
