@@ -3,7 +3,7 @@ output "vpc_id" {
 }
 
 output "subnet_ids" {
-  value = [for sub in module.subnets.public_subnet_ids: sub.id]
+  value = [module.subnets.public_subnet_ids]
 }
 
 
