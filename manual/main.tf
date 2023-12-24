@@ -14,17 +14,7 @@ module "subnets" {
   subnet_type = each.value.subnet_type
 }
 
-data "aws_subnets" "get_subnets_id" {
-  filter {
-    name   = "vpc-id"
-    values = [module.VPC-Manual.vpc_id]
-  }
-}
 
-data "aws_subnet" "get_subnet_id" {
-  for_each = toset(data.aws_subnets.get_subnets_id.ids)
-  id       = each.value
-}
 
 # module "NAT-Gateway" {
 #   source = "./modules/NAT-Gateway"
