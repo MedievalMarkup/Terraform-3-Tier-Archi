@@ -1,5 +1,5 @@
 output "subnet_obj" {
-  value = [for subnet in aws_subnet.aws_subnets: subnet]
+  value = [for subnet in aws_subnet.aws_subnets: subnet.id]
 }
 
 
