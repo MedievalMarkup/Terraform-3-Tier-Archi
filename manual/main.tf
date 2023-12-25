@@ -17,7 +17,7 @@ module "elastic_ips" {
 
 module "NAT-Gateway" {
   source = "./modules/NAT-Gateway"
-  for_each = toset(module.elastic_ips.eip_id)
+  for_each = {for i, v in module.elastic_ips: i => v.eip_id}
   public_ids = module.subnets.public_subnet_ids
   eip_alloc_id = each.key
 }
