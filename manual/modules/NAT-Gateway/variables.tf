@@ -5,5 +5,5 @@ variable "eip_alloc_id" {
 
 variable "public_ids" {
   description = "Indicates if this EIP is for use in VPC"
-  type = list(string)
+  type = string
 }
