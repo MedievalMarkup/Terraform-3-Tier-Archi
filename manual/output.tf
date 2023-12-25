@@ -6,8 +6,8 @@ output "subnet_ids" {
   value = module.subnets.public_subnet_ids
 }
 
-# output "eip_alloc_id" {
-#   value = {for i, v in module.elastic_ips: i => v.eip_id}
-# }
+output "eip_alloc_id" {
+  value = [for i in module.elastic_ips: i.eip_id]
+}
 
 
