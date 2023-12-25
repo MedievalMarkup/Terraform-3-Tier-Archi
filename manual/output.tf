@@ -7,7 +7,7 @@ output "subnet_ids" {
 }
 
 output "eip_alloc_id" {
-  value = module.elastic_ips.eip_id
+  value = {for i, v in module.elastic_ips: i => v.eip_id}
 }
 
 
