@@ -1,6 +1,6 @@
 variable "eip_alloc_id" {
   description = ""
-  type = string
+  type = list(string)
 }
 
 variable "public_ids" {
