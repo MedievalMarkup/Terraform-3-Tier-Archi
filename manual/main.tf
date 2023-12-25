@@ -12,20 +12,20 @@ module "subnets" {
 
 module "elastic_ips" {
   source = "./modules/EIP"
-  count  = length(module.subnets.public_subnet_ids)
+  count  = var.count_of_eips
 }
 
-module "NAT-Gateway" {
-  source = "./modules/NAT-Gateway"
-  for_each = {for i, v in module.elastic_ips: i => v.eip_id}
-  public_ids = module.subnets.public_subnet_ids
-  eip_alloc_id = each.key
-}
+# module "NAT-Gateway" {
+#   source = "./modules/NAT-Gateway"
+#   for_each = {for i, v in module.elastic_ips: i => v.eip_id}
+#   public_ids = module.subnets.public_subnet_ids
+#   eip_alloc_id = each.key
+# }
 
-module "internet-gateway" {
-  source = "./modules/Internet-Gateway"
-  vpc_id = module.VPC-Manual.vpc_id
-}
+# module "internet-gateway" {
+#   source = "./modules/Internet-Gateway"
+#   vpc_id = module.VPC-Manual.vpc_id
+# }
 
 # module "route-tables" {
 #   source = "./modules/RouteTables"

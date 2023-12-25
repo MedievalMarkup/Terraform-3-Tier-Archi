@@ -53,3 +53,9 @@ variable "list_of_subnets" {
     }
   ]
 }
+
+variable "count_of_eips" {
+  description = "count_of_eips_for_nat"
+  type = number
+  default = 2
+}
