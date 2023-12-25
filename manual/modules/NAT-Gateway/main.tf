@@ -10,6 +10,6 @@ locals {
 
 resource "aws_nat_gateway" "test-nat" {
   for_each = local.public_ids_map
-  allocation_id = var.eip_alloc_id[each.key]
+  allocation_id = var.eip_alloc_id
   subnet_id     = each.value
 }
