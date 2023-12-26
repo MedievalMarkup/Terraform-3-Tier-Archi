@@ -11,7 +11,7 @@ output "eip_alloc_id" {
 }
 
 output "eip_sub_id" {
-  value = local.eipb_obj
+  value = locals.eipb_obj
 }
 
 
