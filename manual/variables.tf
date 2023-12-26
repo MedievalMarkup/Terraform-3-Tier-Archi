@@ -59,3 +59,9 @@ variable "count_of_eips" {
   type = number
   default = 2
 }
+
+variable "public_ids" {
+  description = "public ids"
+  type = list(string)
+  default = []
+}
