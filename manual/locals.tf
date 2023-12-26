@@ -12,11 +12,11 @@ locals {
     # Adjust the keys according to your actual requirements
   }
 
-  eipb_obj = [for idx in var.public_ids : {
-    for sub in local.public_ids_map :  
-      "${idx.eip_id}-${sub}" => { 
-        eip = idx.eip_id
-        sub_id = sub
+  eipb_obj = [for idx in compact(tolist(module.subnets.public_subnet_ids)) : {
+    for eip in module.elastic_ips :  
+      "${idx}-${eip}" => { 
+        sub_id = idx
+        eip_id = eip.eip_id
       }
   }]
 #   eip_object_locals = {
