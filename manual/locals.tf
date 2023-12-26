@@ -5,12 +5,12 @@ locals {
 
 #   vpc_id = module.VPC-Manual.vpc_id
 
-  public_ids_map = {
-    subnet1 = var.public_ids[0]
-    subnet2 = var.public_ids[1]
-    # Add statically defined keys for each public ID in var.public_ids
-    # Adjust the keys according to your actual requirements
-  }
+  # public_ids_map = {
+  #   subnet1 = var.public_ids[0]
+  #   subnet2 = var.public_ids[1]
+  #   # Add statically defined keys for each public ID in var.public_ids
+  #   # Adjust the keys according to your actual requirements
+  # }
 
   eipb_obj = [for idx in compact(tolist(module.subnets.public_subnet_ids)) : {
     for eip in module.elastic_ips :  
